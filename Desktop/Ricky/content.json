@@ -1,0 +1,116 @@
+{
+  "profile": {
+    "name": "劉子睿 (Ricky Liu)",
+    "title": "CS @ NTHU · Systems / AI",
+    "intro": "國立清華大學資工系在學，偏好系統與 AI 類題目，喜歡把需求拆解成可落地的工程解法。",
+    "about": "熟悉資料結構與演算法、作業系統與電腦網路等基礎課程，近期以競賽與專題累積實作經驗，重視清楚的需求界定與可維護的程式設計。",
+    "location": "Taipei, Taiwan",
+    "links": {
+      "email": "ricky50811@gmail.com",
+      "github": "https://github.com/rickyliu527"
+    },
+    "kpis": [
+      {
+        "value": "NTHU CS",
+        "label": "學歷 / 系所"
+      },
+      {
+        "value": "Systems · AI",
+        "label": "興趣領域"
+      },
+      {
+        "value": "Hackathon / Competition",
+        "label": "作品類型"
+      }
+    ],
+    "summary": [
+      "Meichu Hackathon：Feature phone 求職 App（CloudMosa Track）",
+      "TCGA Competition：Surakarta Chess AI（Gold Award）",
+      "擅長：系統拆解、功能落地、團隊協作、清楚的成果描述"
+    ],
+    "skills": [
+      "C",
+      "C++",
+      "Python",
+      "Verilog",
+      "Data Structures",
+      "Algorithms",
+      "System Programming",
+      "Software Design",
+      "Git",
+      "Linux",
+      "GitHub"
+    ],
+    "languages": "English（Professional）、Chinese（Native）、Taiwanese（Hokkien）— Conversational Listening、Japanese — Basic"
+  },
+  "projects": [
+    {
+      "name": "Job-Finding App for Feature Phones — Meichu Hackathon (CloudMosa Track)",
+      "tags": [
+        "Hackathon",
+        "Product"
+      ],
+      "desc": [
+        "Designed and developed a job-finding application optimized for keypad-based feature phones (Cloud Phones).",
+        "Implemented core functionalities including job posting, application workflow, and employer contact system.",
+        "Designed an intuitive UI navigation flow tailored for non-touch devices and constrained hardware environments.",
+        "Collaborated with a team of four to define system architecture and deliver a functional prototype."
+      ],
+      "github": "",
+      "demo": "",
+      "report": ""
+    },
+    {
+      "name": "Surakarta Chess AI — TCGA Computer Game Competition (Gold Award)",
+      "tags": [
+        "AI",
+        "Competition"
+      ],
+      "desc": [
+        "Developed an automated AI agent for the board game Surakarta Chess.",
+        "Implemented game logic and AI decision-making to compete against other AI teams.",
+        "Achieved Gold Award in a national-level computer game competition."
+      ],
+      "github": "",
+      "demo": "",
+      "report": ""
+    }
+  ],
+  "resume": {
+    "education": [
+      {
+        "org": "National Tsing Hua University (NTHU)",
+        "time": "Aug 2023 – Present",
+        "detail": "Bachelor of Science in Computer Science · Hsinchu, Taiwan",
+        "bullets": [
+          "Relevant Coursework: Data Structures, Algorithms, Operating Systems, Computer Networks"
+        ]
+      },
+      {
+        "org": "The Affiliated Senior High School of National Taiwan Normal University (HSNU)",
+        "time": "Aug 2020 – May 2023",
+        "detail": "Information Science Program · Taipei, Taiwan",
+        "bullets": []
+      }
+    ],
+    "experience": [
+      {
+        "org": "APCS (Advanced Placement Computer Science)",
+        "time": "Feb 2022",
+        "detail": "Certification",
+        "bullets": [
+          "Programming Concepts: Level 4",
+          "Programming Practice: Level 2"
+        ]
+      },
+      {
+        "org": "TOEIC",
+        "time": "Feb 2023",
+        "detail": "Certification",
+        "bullets": [
+          "Score: 815"
+        ]
+      }
+    ]
+  }
+}
