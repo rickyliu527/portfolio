@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <meta name="description" content="個人作品集與履歷網站" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+    :root{
+      --bg:#f4effa; --card:#ffffff; --text:#2a2440; --muted:#6b5e86;
+      --line:#e0d6f2; --accent:#b28dff; --accent2:#f1c6ff;
+      --shadow: 0 18px 40px rgba(42,36,64,.12);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Plus Jakarta Sans","Noto Sans TC",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(1000px 520px at 12% -10%, rgba(178,141,255,.25), transparent 60%),
+        radial-gradient(800px 480px at 90% 0%, rgba(241,198,255,.22), transparent 55%),
+        linear-gradient(180deg, #f7f2ff, #f1ebff 55%, #efe8ff);
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(247,242,255,.7);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{display:flex; gap:10px; align-items:center}
+    .avatar{
+      width:34px;height:34px;border-radius:999px;
+      background: linear-gradient(135deg, rgba(178,141,255,.95), rgba(241,198,255,.9));
+      box-shadow: 0 0 0 3px rgba(178,141,255,.18);
+    }
+    .brand b{font-size:14px}
+    .brand span{color:var(--muted); font-size:12px}
+    .links{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      padding:9px 12px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.7);
+      color: var(--muted);
+      font-size:13px;
+    }
+    .pill:hover{border-color: rgba(178,141,255,.6); color: var(--text)}
+    .pill.primary{
+      background: rgba(178,141,255,.18);
+      border-color: rgba(178,141,255,.55);
+      color: var(--text);
+    }
+
+    .hero{padding:44px 0 18px}
+    .heroGrid{display:grid; grid-template-columns:1.2fr .8fr; gap:16px}
+    @media (max-width:900px){.heroGrid{grid-template-columns:1fr}}
+    .card{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:34px;
+      letter-spacing:-.02em;
+      font-family:"Fraunces","Noto Serif TC",serif;
+    }
+    .tagline{margin:0 0 14px; color:var(--muted); line-height:1.7}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .kpi{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px}
+    @media (max-width:520px){.kpi{grid-template-columns:1fr}}
+    .kpi .box{
+      border:1px solid var(--line);
+      background: rgba(246,242,255,.8);
+      border-radius: 14px;
+      padding:12px;
+    }
+    .kpi .n{font-weight:700; font-size:14px}
+    .kpi .t{color:var(--muted); font-size:12px; margin-top:4px}
+
+    section{padding:18px 0}
+    .sectionTitle{display:flex; align-items:end; justify-content:space-between; gap:12px}
+    h2{margin:0; font-size:18px}
+    .small{color:var(--muted); font-size:12px; line-height:1.6}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width:900px){.grid2{grid-template-columns:1fr}}
+    .skills{display:flex; flex-wrap:wrap; gap:8px}
+    .chip{
+      padding:7px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(246,242,255,.9);
+      color: var(--muted);
+      font-size:12px;
+    }
+
+    .projects{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:12px}
+    @media (max-width:900px){.projects{grid-template-columns:1fr}}
+    .proj{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:14px;
+      box-shadow: 0 10px 26px rgba(42,36,64,.12);
+      display:flex; flex-direction:column; gap:10px;
+      min-height: 170px;
+    }
+    .proj h3{margin:0;font-size:15px}
+    .proj p{margin:0;color:var(--muted); font-size:13px; line-height:1.6}
+    .meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:auto}
+    .meta a{font-size:12px; color: var(--text)}
+    .meta a:hover{color: var(--accent)}
+    .badge{
+      font-size:11px; color: var(--muted);
+      border:1px solid var(--line);
+      background: rgba(246,242,255,.9);
+      padding:6px 8px; border-radius:999px;
+    }
+
+    .timeline{display:flex; flex-direction:column; gap:10px; margin-top:12px}
+    .item{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: 16px;
+      padding:14px;
+    }
+    .itemTop{display:flex; gap:10px; align-items:baseline; justify-content:space-between; flex-wrap:wrap}
+    .item b{font-size:14px}
+    .item .when{color:var(--muted); font-size:12px}
+    ul{margin:10px 0 0 18px; color:var(--muted); line-height:1.7; font-size:13px}
+
+    footer{padding:28px 0 40px; color:var(--muted); font-size:12px}
+    .divider{height:1px; background: var(--line); margin:12px 0}
+    .hidden{display:none !important}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <b id="brandName">你的名字</b><br/>
+          <span id="brandTitle">NTHU CS · FPGA / Systems / ML</span>
+        </div>
+      </div>
+      <nav class="links">
+        <a class="pill" href="#about">About</a>
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#resume">Resume</a>
+        <a class="pill primary" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="heroGrid">
+      <div class="card">
+        <h1>嗨，我是 <span id="heroName" style="color:var(--accent)">你的名字</span></h1>
+        <p class="tagline" id="heroIntro">用 2~4 句話簡介你自己：你在做什麼、擅長什麼、想找什麼機會。</p>
+        <div class="cta" id="heroLinks"></div>
+
+        <div class="kpi" id="heroKpis"></div>
+      </div>
+
+      <div class="card" id="summaryCard">
+        <h2>快速摘要</h2>
+        <div class="divider"></div>
+        <p class="small" id="summaryText"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sectionTitle">
+      <h2>About</h2>
+      <div class="small">一段精簡但有個性的自我介紹。</div>
+    </div>
+
+    <div class="grid2" style="margin-top:12px">
+      <div class="card">
+        <h2>自我介紹</h2>
+        <p class="small" id="aboutText"></p>
+      </div>
+
+      <div class="card" id="skillsCard">
+        <h2>Skills</h2>
+        <div class="skills" style="margin-top:10px" id="skills"></div>
+        <div class="divider"></div>
+        <p class="small" id="languages"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sectionTitle">
+      <h2>Projects</h2>
+      <div class="small">以結果導向敘述，強調你的貢獻與影響。</div>
+    </div>
+
+    <div class="projects" id="projectList"></div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="sectionTitle">
+      <h2>Resume</h2>
+      <div class="small">教育與經歷。</div>
+    </div>
+
+    <div class="grid2" style="margin-top:12px">
+      <div class="card">
+        <h2>Education</h2>
+        <div class="timeline" id="education"></div>
+      </div>
+
+      <div class="card">
+        <h2>Experience</h2>
+        <div class="timeline" id="experience"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="sectionTitle">
+      <h2>Contact</h2>
+      <div class="small">快速聯絡我。</div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <p class="small" id="contact"></p>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> <span id="footerName">你的名字</span> · Built with HTML/CSS
+  </footer>
+</main>
+
+<script>
+  const el = (id) => document.getElementById(id);
+  const addPill = (container, text, href) => {
+    if (!text || !href) return;
+    const a = document.createElement("a");
+    a.className = "pill";
+    a.href = href;
+    a.textContent = text;
+    if (href.startsWith("http")) {
+      a.target = "_blank";
+      a.rel = "noreferrer";
+    }
+    container.appendChild(a);
+  };
+
+  fetch("content.json")
+    .then((r) => r.json())
+    .then((data) => {
+      const profile = data.profile || {};
+      const links = profile.links || {};
+
+      const name = profile.name || "你的名字";
+      el("brandName").textContent = name;
+      el("heroName").textContent = name;
+      el("footerName").textContent = name;
+      document.title = `${name}｜Portfolio`;
+
+      el("brandTitle").textContent = profile.title || "";
+      el("heroIntro").textContent = profile.intro || "";
+      el("aboutText").textContent = profile.about || profile.intro || "";
+
+      const heroLinks = el("heroLinks");
+      heroLinks.innerHTML = "";
+      addPill(heroLinks, "看作品集", "#projects");
+      if (links.email) addPill(heroLinks, "Email", `mailto:${links.email}`);
+      if (links.github) addPill(heroLinks, "GitHub", links.github);
+      if (links.linkedin) addPill(heroLinks, "LinkedIn", links.linkedin);
+      if (profile.resume) addPill(heroLinks, "下載履歷", profile.resume);
+
+      const kpis = Array.isArray(profile.kpis) ? profile.kpis : [];
+      const heroKpis = el("heroKpis");
+      heroKpis.innerHTML = "";
+      if (kpis.length === 0) {
+        heroKpis.classList.add("hidden");
+      } else {
+        kpis.forEach((k) => {
+          const box = document.createElement("div");
+          box.className = "box";
+          box.innerHTML = `<div class="n">${k.value || ""}</div><div class="t">${k.label || ""}</div>`;
+          heroKpis.appendChild(box);
+        });
+      }
+
+      const summaryText = el("summaryText");
+      if (Array.isArray(profile.summary) && profile.summary.length) {
+        summaryText.innerHTML = profile.summary.map((s) => `- ${s}`).join("<br/>");
+      } else {
+        el("summaryCard").classList.add("hidden");
+      }
+
+      const skills = Array.isArray(profile.skills) ? profile.skills : [];
+      const skillsBox = el("skills");
+      skillsBox.innerHTML = "";
+      if (skills.length === 0) {
+        el("skillsCard").classList.add("hidden");
+      } else {
+        skills.forEach((s) => {
+          const chip = document.createElement("span");
+          chip.className = "chip";
+          chip.textContent = s;
+          skillsBox.appendChild(chip);
+        });
+      }
+      el("languages").textContent = profile.languages || "";
+
+      const projects = Array.isArray(data.projects) ? data.projects : [];
+      const projectList = el("projectList");
+      projectList.innerHTML = "";
+      projects.forEach((p) => {
+        const article = document.createElement("article");
+        article.className = "proj";
+
+        const tags = Array.isArray(p.tags) ? p.tags : [];
+        const tagHtml = tags.map((t) => `<span class="badge">${t}</span>`).join("");
+
+        const descHtml = Array.isArray(p.desc)
+          ? p.desc.map((d) => `<p>${d}</p>`).join("")
+          : `<p>${p.desc || ""}</p>`;
+
+        const linksHtml = [
+          p.github ? `<a href="${p.github}" target="_blank" rel="noreferrer">GitHub →</a>` : "",
+          p.demo ? `<a href="${p.demo}" target="_blank" rel="noreferrer">Demo →</a>` : "",
+          p.report ? `<a href="${p.report}" target="_blank" rel="noreferrer">Report →</a>` : "",
+        ].filter(Boolean).join("");
+
+        article.innerHTML = `
+          <div style="display:flex; gap:8px; flex-wrap:wrap">${tagHtml}</div>
+          <h3>${p.name || ""}</h3>
+          ${descHtml}
+          <div class="meta">${linksHtml}</div>
+        `;
+        projectList.appendChild(article);
+      });
+
+      const education = Array.isArray(data.resume?.education) ? data.resume.education : [];
+      const experience = Array.isArray(data.resume?.experience) ? data.resume.experience : [];
+
+      const eduEl = el("education");
+      eduEl.innerHTML = "";
+      education.forEach((e) => {
+        const item = document.createElement("div");
+        item.className = "item";
+        const bullets = Array.isArray(e.bullets) ? e.bullets : [];
+        item.innerHTML = `
+          <div class="itemTop">
+            <b>${e.org || ""}</b>
+            <span class="when">${e.time || ""}</span>
+          </div>
+          ${e.detail ? `<div class="small">${e.detail}</div>` : ""}
+          ${bullets.length ? `<ul>${bullets.map((b) => `<li>${b}</li>`).join("")}</ul>` : ""}
+        `;
+        eduEl.appendChild(item);
+      });
+
+      const expEl = el("experience");
+      expEl.innerHTML = "";
+      experience.forEach((e) => {
+        const item = document.createElement("div");
+        item.className = "item";
+        const bullets = Array.isArray(e.bullets) ? e.bullets : [];
+        item.innerHTML = `
+          <div class="itemTop">
+            <b>${e.org || ""}</b>
+            <span class="when">${e.time || ""}</span>
+          </div>
+          ${e.detail ? `<div class="small">${e.detail}</div>` : ""}
+          ${bullets.length ? `<ul>${bullets.map((b) => `<li>${b}</li>`).join("")}</ul>` : ""}
+        `;
+        expEl.appendChild(item);
+      });
+
+      const contact = el("contact");
+      const contactLines = [];
+      if (profile.location) contactLines.push(`Location：${profile.location}`);
+      if (links.email) contactLines.push(`Email：<a href="mailto:${links.email}" style="color:var(--accent)">${links.email}</a>`);
+      if (links.github) contactLines.push(`GitHub：<a href="${links.github}" target="_blank" rel="noreferrer" style="color:var(--accent)">${links.github.replace(/^https?:\/\//, "")}</a>`);
+      if (links.linkedin) contactLines.push(`LinkedIn：<a href="${links.linkedin}" target="_blank" rel="noreferrer" style="color:var(--accent)">${links.linkedin.replace(/^https?:\/\//, "")}</a>`);
+      contact.innerHTML = contactLines.join("<br/>");
+    })
+    .catch((err) => {
+      console.error("Failed to load content.json", err);
+    });
+
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
